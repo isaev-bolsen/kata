@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace KATA
 {
 	public class Foo
 	{
+		public static List<Foo> listOfObjectsCreated = new List<Foo>();
+
 		public Foo()
 		{
 			Console.WriteLine(GetType() + " Created !");
+			listOfObjectsCreated.Add(this);
 		}
 	}
 
@@ -25,6 +29,7 @@ namespace KATA
 		static void Main(string[] args)
 		{
 			Bar1 b = new Bar1();
+			Console.WriteLine(Foo.listOfObjectsCreated.Count);
 		}
 	}
 }
