@@ -5,6 +5,7 @@ namespace KATA
 {
 	public class Foo
 	{
+		public int i { get; set; }
 		public static List<Foo> listOfObjectsCreated = new List<Foo>();
 
 		public Foo()
@@ -16,12 +17,14 @@ namespace KATA
 
 	public class Bar
 	{
-		protected virtual Foo foo { get; } = new Foo();
+		protected virtual Foo foo { get; } = new Foo { i = 1 };
 	}
 
 	public class Bar1 : Bar
 	{
-		protected override Foo foo { get; } = new Foo();
+		protected override Foo foo { get; } = new Foo { i = 2 };
+
+		public Foo fobase => base.foo;
 	}
 
 	class Program
